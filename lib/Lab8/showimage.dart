@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-class showimage extends StatelessWidget {
+class showimage extends StatefulWidget {
   showimage({super.key});
 
-  bool isDisplayMode = true;
+  @override
+  State<showimage> createState() => _showimageState();
+}
+
+class _showimageState extends State<showimage> {
+  bool isDisplayMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -23,18 +28,23 @@ class showimage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(14.0),
-                child: FilledButton(onPressed: () {}, child: Text('Get Card'),
+                child: FilledButton(onPressed: () {
+                  setState(() {
+
+                  });
+                  isDisplayMode = !isDisplayMode;
+                  print(isDisplayMode);
+                }, child: Text('Get Card'),
                   style: FilledButton.styleFrom(backgroundColor: Colors.blue),),
               )
             ],
-          ) :
-          Stack(
-              children: [
-              Image.asset("assets/images/minion.jpg");
-          Container(
-
-          )
-      ],
+          ) : Stack(
+            children: [
+              Image.asset("assets/images/minion.jpg"),
+              Container(
+                color: Colors.white..withOpacity(0.5),
+              ),
+            ],
     ),)
     ,
     );
